@@ -1,5 +1,17 @@
+use clap::Parser;
 use itertools::{chain, Itertools};
 use rusqlite::{self, params, Connection};
+use std::env;
+
+#[derive(Parser, Debug)]
+#[clap(author, version, about)]
+struct Args {
+    #[clap(long)]
+    strict: bool,
+
+    #[clap(short, long, default_value_t = String::new())]
+    query: String,
+}
 
 fn predict_one_grams(conn: &Connection, query: &str) -> Result<Vec<String>, rusqlite::Error> {
     let mut stmt = conn.prepare(
@@ -170,5 +182,13 @@ fn predict(conn: &Connection, query: &[&str]) -> Result<Vec<String>, rusqlite::E
 }
 
 fn main() {
-    println!("Hello, world!");
+    let args = Args::parse();
+    let sqlite_path = match env::var("MOCWORD_DATA") {
+        Ok(val) => val,
+        Err(err) => panic!("{}", err),
+    };
+    let conn = &Connection::open(sqlite_path).unwrap();
+
+    let query: Vec<_> = args.query.split(" ").collect();
+    println!("{}", predict(conn, &query).unwrap().join("\n"));
 }
