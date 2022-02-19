@@ -8,6 +8,12 @@ Predict next words (｀･ω･´)
 
 ## Installation
 
+### Prebuilt Binary
+
+Visit [Releases](https://github.com/high-moctane/mocword/releases).
+
+### Cargo
+
 ```
 cargo install mocword
 ```
