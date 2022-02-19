@@ -8,6 +8,8 @@ Predict next words (｀･ω･´)
 
 ## Installation
 
+**Important**: You must prepare Mocword dataset in advance. See below ([Dataset and Environment Variable](https://github.com/high-moctane/mocword#dataset-and-environment-variable)).
+
 ### Prebuilt Binary
 
 Visit [Releases](https://github.com/high-moctane/mocword/releases).
