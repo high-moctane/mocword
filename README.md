@@ -1,10 +1,26 @@
-# mocword
+# Mocword
 
-Predict next English words (｀･ω･´)
+Predict next words (｀･ω･´)
+
+![give_me_a_star](img/give_me_a_star.gif)
+
+## Installation
+
+```
+cargo install mocword
+```
+
+## Dataset and Environment Variable
+
+You need to get Mocword dataset from [high-moctane/mocword-data](https://github.com/high-moctane/mocword-data).
+
+```
+export MOCWORD_DATA=/path/to/mocword.sqlite
+```
 
 ## Usage
 
-### One shot mode
+### One Shot Mode
 
 ```
 $ mocword -q "this is "
@@ -27,7 +43,7 @@ them
 these
 ```
 
-### Interactive mode
+### Interactive Mode
 
 ```
 $ mocword
@@ -39,7 +55,7 @@ the them these those their two three this that themselves
 
 The underscore is a white space.
 
-## Query string
+## Query String
 
 Ends with a white space -> predict successive words.
 
