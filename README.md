@@ -1,5 +1,7 @@
 # Mocword
 
+[![Release](https://github.com/high-moctane/mocword/actions/workflows/release.yml/badge.svg)](https://github.com/high-moctane/mocword/actions/workflows/release.yml)
+
 Predict next words (｀･ω･´)
 
 ![give_me_a_star](img/give_me_a_star.gif)
