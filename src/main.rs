@@ -300,12 +300,17 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
 }
 
 fn interact(conn: &Connection, args: &Args) -> Result<(), Box<dyn std::error::Error>> {
+    let re = Regex::new(r"^\s+$").unwrap();
+
     let scan = io::stdin();
     loop {
         let mut line = String::new();
         let cnt = scan.read_line(&mut line)?;
         if cnt == 0 {
             break;
+        }
+        if re.is_match(&line) {
+            continue;
         }
         println!(
             "{}",
